@@ -8,11 +8,14 @@ const WorkoutForm = () => {
     const [reps, setReps] = useState('');
     const [load, setLoad] = useState('');
     const [error, setError] = useState(null);
+    const [emptyFields, setEmptyFields] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const workout = {title, reps, load};
+
+ 
 
         const res = await fetch('http://localhost:4000/api/workouts', {
             method: 'POST',
@@ -24,22 +27,29 @@ const WorkoutForm = () => {
 
         const data = await res.json();
 
-        if (!res.ok) setError(data.error);
+        if (!res.ok) {
+            setError(data.error);
+            setEmptyFields(data.emptyFields);
+            console.log(data.emptyFields);
+        } 
 
         if (res.ok) {
             setTitle('');
             setReps('');
             setLoad('');
+
             setError(null);
-            console.log('New worout added', data);
+            setEmptyFields([]);
+
             setWorkouts([data, ...workouts])
         }
     }
 
     return (
-        <form className='absolute top-[5.75rem] right-0 flex flex-col align-items-center my-3 p-4 border-2 border-gray-500 rounded-md w-max mx-auto' onSubmit={handleSubmit}>
+        <form className='absolute top-[5.75rem] right-0 flex flex-col align-items-center my-3 p-4 border-2 border-gray-500 rounded-lg w-max mx-auto' onSubmit={handleSubmit}>
             <input 
-                className='p-2 my-3 bg-gray-800 rounded-md'
+                className={`p-2 my-3 bg-gray-800 border-2 rounded-md
+                    ${emptyFields.includes('title') ? 'border-2 border-red-500' : 'border-gray-700'}`}
                 type='text'
                 onChange={e => setTitle(e.target.value)}
                 value={title}
@@ -48,7 +58,8 @@ const WorkoutForm = () => {
             <br />
 
             <input 
-                className='p-2 my-3 bg-gray-800 rounded-md'
+                className={`p-2 my-3 bg-gray-800 border-2 rounded-md
+                    ${emptyFields.includes('reps') ? 'border-red-500' : 'border-gray-700'}`}
                 type='number'
                 onChange={e => setReps(e.target.value)}
                 value={reps}
@@ -57,7 +68,8 @@ const WorkoutForm = () => {
             <br />
 
             <input 
-                className='p-2 my-3 bg-gray-800 rounded-md'
+                className={`p-2 my-3 bg-gray-800 border-2 rounded-md
+                    ${emptyFields.includes('load') ? 'border-2 border-red-500' : 'border-gray-700'}`}
                 type='number'
                 onChange={e => setLoad(e.target.value)}
                 value={load}
