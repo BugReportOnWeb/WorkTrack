@@ -25,7 +25,7 @@ MONGO_URI=<your-mongodb-uri>
 ```
 Be sure to replace `<your-mongodb-uri>` with the URI of your MongoDB database, and `<server-port>` with a port of your choice.
 
-5. Start the server by running the command `npm run dev`. This will start the server on port `<server-port`.
+5. Start the server by running the command `npm run dev`. This will start the server on port `<server-port>`.
 6. In a new terminal window, navigate to the client directory by running the command `cd client`. 
 7. Install the client dependencies by running the command `npm install`. This will install the necessary packages for the client.
 8. Start the client by running the command `npm run dev`. This will start the client on port 5173.
@@ -43,6 +43,7 @@ WorkTrack was built using the following technologies:
 ### Extras
 - Mongoose: an Object Data Modeling (ODM) library for MongoDB providing schema-based solution for modeling application data.
 - Fetch API: A modern browser API used to make HTTP requests from the client-side of the application.
+- Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
 
 ## Contributing
 
