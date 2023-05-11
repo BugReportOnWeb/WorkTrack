@@ -16,6 +16,20 @@ const userSchema = new Schema({
     }
 })
 
+userSchema.statics.login = async function(email, password) {
+    if (!email || !password) throw Error('All fields must be filled');
+
+    const user = await this.findOne({ email });
+
+    if (!user) throw Error('Invalid Credentials! Email is not registered');
+
+    const match = await bcrypt.compare(password, user.password);
+
+    if (!match) throw Error('Invalid Credentials! Password is incorrect');
+
+    return user;
+}
+
 userSchema.statics.register = async function(email, password) {
     if (!email || !password) throw Error('All fields must be filled');
     if (!validator.isEmail(email)) throw Error('Email is not valid');
