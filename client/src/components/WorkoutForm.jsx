@@ -15,8 +15,6 @@ const WorkoutForm = () => {
 
         const workout = {title, reps, load};
 
- 
-
         const res = await fetch('http://localhost:4000/api/workouts', {
             method: 'POST',
             body: JSON.stringify(workout),
@@ -30,7 +28,6 @@ const WorkoutForm = () => {
         if (!res.ok) {
             setError(data.error);
             setEmptyFields(data.emptyFields);
-            console.log(data.emptyFields);
         } 
 
         if (res.ok) {
