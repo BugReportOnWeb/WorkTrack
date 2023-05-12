@@ -6,7 +6,7 @@ import Contact from './pages/Contact.jsx';
 
 const App = () => {
     return (
-        <div className='App max-w-5xl mx-auto'>
+        <div className='App max-w-5xl mx-auto px-5'>
             <Nav />
             <Routes>
                 <Route path='/' element={<Home />} />
