@@ -10,6 +10,9 @@ const Login = () => {
     const loginUser = async (e)=> {
         e.preventDefault();
         await login(email, password);
+
+        setEmail('');
+        setPassword('');
     }
 
     return (

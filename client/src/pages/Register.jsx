@@ -10,6 +10,9 @@ const Register = () => {
     const registerUser = async (e) => {
         e.preventDefault();
         await signup(email, password)
+
+        setEmail('');
+        setPassword('');
     }
 
     return (
