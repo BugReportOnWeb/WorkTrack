@@ -75,7 +75,7 @@ const WorkoutForm = () => {
             <br />
 
             <button type='submit' className='mx-auto border-2 border-[#007bff] p-3 my-2 rounded-lg w-max hover:bg-[#007bff] hover:text-white'>Add Workout</button>
-            {error && <Error error={error} />}
+            {error && <Error error={error} width='17.3rem' />}
         </form>
     )
 }
