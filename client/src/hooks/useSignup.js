@@ -1,10 +1,10 @@
-import { useState, useContext } from 'react';
-import { AuthUserContext } from '../context/AuthUserContext';
+import { useState } from 'react';
+import { useAuthUserContext } from './useAuthUserContext.js';
 
 const useSignup = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
-    const { setAuthUser } = useContext(AuthUserContext);
+    const { setAuthUser } = useAuthUserContext();
 
     const signup = async (email, password) => {
         setIsLoading(true);
@@ -26,11 +26,11 @@ const useSignup = () => {
         if (res.ok) {
             localStorage.setItem('user', JSON.stringify(data));
             setIsLoading(false);
-            setAuthUser({ user: data })
+            setAuthUser({ user: data });
         }
     }
     
-    return { signup, error, isLoading }
+    return { signup, error, isLoading };
 }
 
 export { useSignup };
