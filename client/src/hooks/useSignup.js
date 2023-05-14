@@ -26,7 +26,7 @@ const useSignup = () => {
         if (res.ok) {
             localStorage.setItem('user', JSON.stringify(data));
             setIsLoading(false);
-            setAuthUser({ user: data });
+            setAuthUser(data);
         }
     }
     
