@@ -21,11 +21,11 @@ userSchema.statics.login = async function(email, password) {
 
     const user = await this.findOne({ email });
 
-    if (!user) throw Error('Invalid Credentials! Email is not registered');
+    if (!user) throw Error('Email is not registered');
 
     const match = await bcrypt.compare(password, user.password);
 
-    if (!match) throw Error('Invalid Credentials! Password is incorrect');
+    if (!match) throw Error('Password is incorrect');
 
     return user;
 }
