@@ -22,8 +22,9 @@ To use WorkTrack locally, follow these steps:
 ```
 PORT=<server-port>
 MONGO_URI=<your-mongodb-uri>
+JWT_SECRET=<jwt-secret-key>
 ```
-Be sure to replace `<your-mongodb-uri>` with the URI of your MongoDB database, and `<server-port>` with a port of your choice.
+Be sure to replace `<your-mongodb-uri>` with the URI of your MongoDB database, JWT_SECRET with a secret key and `<server-port>` with a port of your choice.
 
 5. Start the server by running the command `npm run dev`. This will start the server on port `<server-port>`.
 6. In a new terminal window, navigate to the client directory by running the command `cd client`. 
