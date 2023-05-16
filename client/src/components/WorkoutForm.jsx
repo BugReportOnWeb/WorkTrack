@@ -1,9 +1,11 @@
 import { useState, useContext } from 'react';
 import Error from './Error.jsx';
 import { WorkoutContext } from '../context/WorkoutContext.jsx';
+import { useAuthUserContext } from '../hooks/useAuthUserContext.js';
 
 const WorkoutForm = () => {
     const { workouts, setWorkouts } = useContext(WorkoutContext);
+    const { authUser } = useAuthUserContext();
     const [title, setTitle] = useState('');
     const [reps, setReps] = useState('');
     const [load, setLoad] = useState('');
@@ -13,13 +15,19 @@ const WorkoutForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (!authUser) {
+            setError('You must be logged in');
+            return
+        }
+
         const workout = {title, reps, load};
 
         const res = await fetch('http://localhost:4000/api/workouts', {
             method: 'POST',
             body: JSON.stringify(workout),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authUser.token}`
             }
         })
 
@@ -75,7 +83,7 @@ const WorkoutForm = () => {
             <br />
 
             <button type='submit' className='mx-auto border-2 border-[#007bff] p-3 my-2 rounded-lg w-max hover:bg-[#007bff] hover:text-white'>Add Workout</button>
-            {error && <Error error={error} width='17.3rem' />}
+            {error && <Error error={error} width='w-[17.3rem]' />}
         </form>
     )
 }
