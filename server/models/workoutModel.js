@@ -14,6 +14,10 @@ const workoutSchema = new Schema({
     reps: {
         type: Number,
         required: true,
+    },
+    userId: {
+        type: String,
+        required: true
     }
 }, { timestamps: true })
 
