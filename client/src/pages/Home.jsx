@@ -2,20 +2,30 @@ import { useEffect, useContext } from 'react';
 import WorkoutDetails from '../components/WorkoutDetails.jsx';
 import WorkoutForm from '../components/WorkoutForm.jsx';
 import { WorkoutContext } from '../context/WorkoutContext.jsx';
+import { useAuthUserContext } from '../hooks/useAuthUserContext.js';
 
 const Home = () => {
     const { workouts, setWorkouts } = useContext(WorkoutContext);
+    const { authUser } = useAuthUserContext();
 
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const res = await fetch('http://localhost:4000/api/workouts')
+            const res = await fetch('http://localhost:4000/api/workouts', {
+                headers: { 'Authorization': `Bearer ${authUser.token}` }
+            })
+
             const data = await res.json();
 
             if (res.ok) setWorkouts(data);
+            if (!res.ok) {
+                console.log('This should work');
+                setWorkouts([]);
+            } 
         }
 
-        fetchWorkouts();
-    }, [])
+        if (authUser) fetchWorkouts();
+        else setWorkouts([]); // Check on this later (maybe of no use?)
+    }, [authUser]);
 
     return (
         <div className='Home relative'>
