@@ -10,8 +10,6 @@ const AuthUserContextProvider = ({ children }) => {
         if (user) setAuthUser(user);
     }, [])
 
-    console.log(authUser);
-
     return (
         <AuthUserContext.Provider value={{ authUser, setAuthUser }}>
             {children}
