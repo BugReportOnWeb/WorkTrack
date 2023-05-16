@@ -16,7 +16,7 @@ const Login = () => {
     }
 
     return (
-        <form className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 p-7 flex flex-col justify-center items-center gap-5 w-fit border-2 border-gray-700 rounded-lg' onSubmit={loginUser}>
+        <form className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 p-8 flex flex-col justify-center items-center gap-5 w-fit border-2 border-gray-700 rounded-lg' onSubmit={loginUser}>
             <h1 className='text-3xl font-bold'>Login</h1>
 
             <input
