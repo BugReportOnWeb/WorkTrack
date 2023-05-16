@@ -7,7 +7,7 @@ const getAllWorkouts = async (_req, res) => {
 
     // OPTIONAL check
     if (workouts.length === 0) {
-        res.status(404).json({ error: 'No workouts found' });
+        return res.status(404).json({ error: 'No workouts found' });
     }
 
     res.status(200).json(workouts);
