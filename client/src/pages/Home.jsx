@@ -17,14 +17,11 @@ const Home = () => {
             const data = await res.json();
 
             if (res.ok) setWorkouts(data);
-            if (!res.ok) {
-                console.log('This should work');
-                setWorkouts([]);
-            } 
         }
 
         if (authUser) fetchWorkouts();
         else setWorkouts([]); // Check on this later (maybe of no use?)
+
     }, [authUser]);
 
     return (
