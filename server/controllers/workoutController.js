@@ -2,8 +2,9 @@ import { Workout } from '../models/workoutModel.js';
 import mongoose from 'mongoose';
 
 // GET all workouts data
-const getAllWorkouts = async (_req, res) => {
-    const workouts = await Workout.find().sort({ createdAt: -1 });
+const getAllWorkouts = async (req, res) => {
+    const userId = req.user._id
+    const workouts = await Workout.find({ userId }).sort({ createdAt: -1 });
 
     // OPTIONAL check
     if (workouts.length === 0) {
@@ -44,7 +45,8 @@ const postWorkout = async (req, res) => {
     } 
 
     try {
-        const new_workout = await Workout.create(req.body);
+        const userId = req.user._id
+        const new_workout = await Workout.create({ title, reps, load, userId });
         res.status(200).json(new_workout);
     } catch (error) {
         const errorMessage = { error: error.message };
