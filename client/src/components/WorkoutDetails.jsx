@@ -2,13 +2,18 @@ import { FaTimes } from 'react-icons/fa';
 import { WorkoutContext } from '../context/WorkoutContext.jsx';
 import { useContext } from 'react';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { useAuthUserContext } from '../hooks/useAuthUserContext';
 
 const WorkoutDetails = ({ workout }) => {
     const { workouts, setWorkouts } = useContext(WorkoutContext);
+    const { authUser } = useAuthUserContext()
 
     const deleteWorkout = async () => {
+        if (!authUser) return;
+
         const res = await fetch(`http://localhost:4000/api/workouts/${workout._id}`, {
             method: 'DELETE',
+            headers: { 'Authorization': `Bearer ${authUser.token}` }
         });
 
         const data = await res.json()
