@@ -6,8 +6,8 @@ WorkTrack is a web application for tracking workouts and achieving fitness goals
 
 WorkTrack includes the following features:
 
-- User authentication: Users can sign up for an account, log in, and log out. (work in progress...)
-- Custom workouts: Users can create custom workouts by adding exercises, sets, reps, and weights.
+- User authentication: Users can sign up for an account, log in, and log out.
+- Custom workouts: Users can create custom workouts by adding exercises, reps, and weights.
 - Workout tracking: Users can log their workouts and track their progress over time.
 
 ## Installation
@@ -42,9 +42,10 @@ WorkTrack was built using the following technologies:
 - React: A JavaScript library used for building the client-side of the application.
 - Node.js: A JavaScript runtime used for building the server-side of the application.
 ### Extras
-- Mongoose: an Object Data Modeling (ODM) library for MongoDB providing schema-based solution for modeling application data.
+- Mongoose: An Object Data Modeling (ODM) library for MongoDB providing schema-based solution for modeling application data.
 - Fetch API: A modern browser API used to make HTTP requests from the client-side of the application.
 - Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
+- JSON Web Token (JWT): Compact and self-contained way for securely transmitting information between parties as a JSON object.
 
 ## Contributing
 
