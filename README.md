@@ -14,7 +14,7 @@ WorkTrack includes the following features:
 
 To use WorkTrack locally, follow these steps:
 
-1. Clone the repository to your local machine using the command `git clone https://github.com/BugReportOnWeb/WorkTrack.git`.
+1. Clone the repository (dev branch) to your local machine using the command `git clone -b dev https://github.com/BugReportOnWeb/WorkTrack.git`.
 2. Navigate to the root directory of the project in your terminal.
 3. Head inside the server directory by running the command `cd server` and install server dependencies using command `npm install`.
 4. Set up your environment variables by creating a `.env` file in the server directory of the project. You'll need to add the following variables:
