@@ -47,6 +47,16 @@ WorkTrack was built using the following technologies:
 - Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
 - JSON Web Token (JWT): Compact and self-contained way for securely transmitting information between parties as a JSON object.
 
+## Work on progress
+
+In order of their priority (most to least):
+
+- [ ] Responsiveness
+- [ ] Skeleton component when loading
+- [ ] Indication for ongoing server request
+- [ ] Animation on component/page change
+- [ ] Redoing About page
+
 ## Contributing
 
 If you're interested in contributing to WorkTrack, you can create a pull request on the project's GitHub repository. Contributions are welcome and appreciated as I'm constantly looking for ways to improve the app. If you encounter any bugs or issues, please feel free to submit an issue on the GitHub repository.
