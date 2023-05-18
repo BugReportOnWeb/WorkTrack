@@ -50,8 +50,10 @@ const WorkoutForm = () => {
         }
     }
 
+    // 
+
     return (
-        <form className='absolute top-[5.75rem] right-0 flex flex-col align-items-center my-3 p-4 border-2 border-gray-500 rounded-lg w-max mx-auto' onSubmit={handleSubmit}>
+        <form className={`relative flex flex-col align-items-center ${error ? 'mb-28' : 'mb-10'} p-4 border-2 border-gray-500 rounded-lg w-max mx-auto lg:absolute lg:top-[5.75rem] lg:right-0 lg:my-3`} onSubmit={handleSubmit}>
             <input 
                 className={`p-2 my-3 bg-gray-800 border-2 rounded-md
                     ${emptyFields.includes('title') ? 'border-2 border-red-500' : 'border-gray-700'}`}
