@@ -25,7 +25,7 @@ const WorkoutDetails = ({ workout }) => {
     }
 
     return (
-        <div className='workout p-4 border-2 border-gray-500 rounded-lg w-80'>
+        <div className='mx-auto workout p-4 border-2 border-gray-500 rounded-lg w-80'>
             <div className='header flex justify-between gap-3'>
                 <h1 className='font-semibold mb-2'>{workout.title} <span className='font-extralight mx-1'>{}</span></h1>
                 <FaTimes className='hover:text-red-500 cursor-pointer' onClick={deleteWorkout} />
