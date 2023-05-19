@@ -51,7 +51,7 @@ WorkTrack was built using the following technologies:
 
 In order of their priority (most to least):
 
-- [ ] Responsiveness
+- [X] Responsiveness
 - [ ] Skeleton component when loading
 - [ ] Indication for ongoing server request
 - [ ] Animation on component/page change
