@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Error from '../components/Error.jsx';
+import Loading from '../components/Loading.jsx';
 import { useSignup } from '../hooks/useSignup.js';
 
 const Register = () => {
@@ -35,7 +36,10 @@ const Register = () => {
                 placeholder='Password'
             />
 
-            <button type='submit' disabled={isLoading} className='w-20 border-2 border-[#007bff] p-3 rounded-lg w-max outline-none hover:bg-[#007bff] hover:text-white'>Sign Up</button>
+            <button type='submit' disabled={isLoading} className='flex items-center w-20 border-2 border-[#007bff] p-3 rounded-lg w-max outline-none hover:bg-[#007bff] hover:text-white'>
+                {isLoading && <Loading />}
+                Sign Up
+            </button>
 
             {error && <Error error={error} width='w-[17.9rem]' />}
         </form>

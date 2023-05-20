@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Error from '../components/Error.jsx';
+import Loading from '../components/Loading.jsx';
 import { useLogin } from '../hooks/useLogin.js';
 
 const Login = () => {
@@ -7,7 +8,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const { login, error, isLoading } = useLogin();
 
-    const loginUser = async (e)=> {
+    const loginUser = async (e) => {
         e.preventDefault();
         await login(email, password);
 
@@ -35,9 +36,12 @@ const Login = () => {
                 placeholder='Password'
             />
 
-            <button type='submit' disabled={isLoading} className='w-20 border-2 border-[#007bff] p-3 rounded-lg w-max outline-none hover:bg-[#007bff] hover:text-white'>Login</button>
+            <button type='submit' disabled={isLoading} className='flex items-center w-20 border-2 border-[#007bff] p-3 rounded-lg w-max outline-none hover:bg-[#007bff] hover:text-white'>
+                {isLoading && <Loading />}
+                Login
+            </button>
 
-            {error && <Error error={error} width='w-[17.9rem]' />}
+            {error && <Error error={error} />}
         </form>
     )
 }

@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import Error from './Error.jsx';
 import { WorkoutContext } from '../context/WorkoutContext.jsx';
 import { useAuthUserContext } from '../hooks/useAuthUserContext.js';
+import Loading from '../components/Loading.jsx';
 
 const WorkoutForm = () => {
     const { workouts, setWorkouts } = useContext(WorkoutContext);
@@ -11,9 +12,11 @@ const WorkoutForm = () => {
     const [load, setLoad] = useState('');
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
         if (!authUser) {
             setError('You must be logged in');
@@ -35,6 +38,7 @@ const WorkoutForm = () => {
 
         if (!res.ok) {
             setError(data.error);
+            setIsLoading(false);
             setEmptyFields(data.emptyFields);
         } 
 
@@ -43,11 +47,13 @@ const WorkoutForm = () => {
             setReps('');
             setLoad('');
 
+            setIsLoading(false);
             setError(null);
             setEmptyFields([]);
 
             setWorkouts([data, ...workouts])
         }
+
     }
 
     // 
@@ -84,8 +90,11 @@ const WorkoutForm = () => {
             />
             <br />
 
-            <button type='submit' className='mx-auto border-2 border-[#007bff] p-3 my-2 rounded-lg w-max hover:bg-[#007bff] hover:text-white'>Add Workout</button>
-            {error && <Error error={error} width='w-[17.3rem]' />}
+            <button type='submit' className='flex items-center mx-auto border-2 border-[#007bff] p-3 my-2 rounded-lg w-max hover:bg-[#007bff] hover:text-white'>
+                {isLoading && <Loading />}
+                Add Workout
+            </button>
+            {error && <Error error={error} />}
         </form>
     )
 }
