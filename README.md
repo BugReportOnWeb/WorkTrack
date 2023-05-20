@@ -53,7 +53,7 @@ In order of their priority (most to least):
 
 - [X] Responsiveness
 - [X] Skeleton component when loading
-- [ ] Indication for ongoing server request
+- [X] Indication for ongoing server request (Need one for deletion)
 - [ ] Animation on component/page change
 - [ ] Redoing About page
 
