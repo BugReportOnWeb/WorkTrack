@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Error from '../components/Error.jsx';
 import Loading from '../components/Loading.jsx';
 import { useLogin } from '../hooks/useLogin.js';
+import { motion } from 'framer-motion';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -17,7 +18,12 @@ const Login = () => {
     }
 
     return (
-        <form className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 p-8 flex flex-col justify-center items-center gap-5 w-fit border-2 border-gray-700 rounded-lg' onSubmit={loginUser}>
+        <motion.form
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.75, ease: 'easeOut' }}
+            className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 p-8 flex flex-col justify-center items-center gap-5 w-fit border-2 border-gray-700 rounded-lg' onSubmit={loginUser}
+        >
             <h1 className='text-3xl font-bold'>Login</h1>
 
             <input
@@ -42,7 +48,7 @@ const Login = () => {
             </button>
 
             {error && <Error error={error} />}
-        </form>
+        </motion.form>
     )
 }
 

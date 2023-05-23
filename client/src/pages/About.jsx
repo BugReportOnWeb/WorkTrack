@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
 import image_man from '../assets/man_running.jpg';
 import image_women from '../assets/women_workout.jpg';
+import { motion } from 'framer-motion';
 
 const About = () => {
     return (
-        <div className='About'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.75, ease: 'easeOut' }}
+            className='About'
+        >
             <h1 className='font-extrabold text-5xl my-5 mt-10 text-center'>About Us</h1> 
             <div className='flex max-w-3xl mx-auto flex-col gap-3 text-xl my-10 leading-9'>
                 <p>Welcome to WorkTrack, the ultimate workout tracker! Our platform is designed to help you achieve your fitness goals by tracking and recording your workouts. Whether you're a fitness enthusiast or just getting started, WorkTrack makes it easy to stay motivated and on track.</p>
@@ -20,7 +26,7 @@ const About = () => {
                 </div>
                 <p className='mt-3'>So why wait? <Link to='/register' className='underline-offset-8 decoration-2 decoration-[#007bff] underline'>Sign up</Link> for WorkTrack today and start tracking your workouts like a pro!</p>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

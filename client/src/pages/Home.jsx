@@ -4,6 +4,7 @@ import WorkoutForm from '../components/WorkoutForm.jsx';
 import WorkoutSkeleton from '../components/WorkoutSkeleton.jsx';
 import { WorkoutContext } from '../context/WorkoutContext.jsx';
 import { useAuthUserContext } from '../hooks/useAuthUserContext.js';
+import { motion } from 'framer-motion';
 
 const Home = () => {
     const { workouts, setWorkouts } = useContext(WorkoutContext);
@@ -30,7 +31,12 @@ const Home = () => {
     }, [authUser]);
 
     return (
-        <div className='Home relative'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.75, ease: 'easeOut' }}
+            className='Home relative'
+        >
             <h1 className='font-extrabold text-5xl my-5 mt-10 text-center'>Workouts</h1>
             <div className='my-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:mr-80'>
                 {isLoading ? <WorkoutSkeleton count={4} /> : (
@@ -42,7 +48,7 @@ const Home = () => {
                 )}
             </div>
             <WorkoutForm />
-        </div>
+        </motion.div>
     )
 }
 
