@@ -56,6 +56,7 @@ In order of their priority (most to least):
 - [X] Indication for ongoing server request (Need one for deletion)
 - [ ] Animation on component/page change
 - [ ] Redoing About page
+- [ ] Validator on client-side
 
 ## Contributing
 
