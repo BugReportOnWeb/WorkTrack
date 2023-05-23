@@ -53,8 +53,8 @@ In order of their priority (most to least):
 
 - [X] Responsiveness
 - [X] Skeleton component when loading
-- [X] Indication for ongoing server request (Need one for deletion)
-- [ ] Animation on component/page change
+- [X] Indication for ongoing server request -> (Need one for deletion)
+- [X] Animation on component/page change -> (Need onf for deletion)
 - [ ] Redoing About page
 - [ ] Validator on client-side
 
