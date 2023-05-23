@@ -12,7 +12,7 @@ const PORT = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI;
 
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'https://worktrack-client.onrender.com' }));
 
 app.use((req, _res, next) => {
     console.log(req.method, req.path);
