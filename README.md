@@ -54,9 +54,9 @@ In order of their priority (most to least):
 - [X] Responsiveness
 - [X] Skeleton component when loading
 - [X] Indication for ongoing server request -> (Need one for deletion)
-- [X] Animation on component/page change -> (Need onf for deletion)
+- [X] Animation on component/page change -> (Need one for deletion && New workout display shift)
 - [ ] Redoing About page
-- [ ] Validator on client-side
+- [ ] Validator on client-side (Test)
 
 ## Contributing
 
