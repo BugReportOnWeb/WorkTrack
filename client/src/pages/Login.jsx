@@ -48,7 +48,7 @@ const Login = () => {
                 Login
             </button>
 
-            <h1 className='font-extralight text-sm mt-1'>Not a memeber? <Link to='/register' className='underline decoration-blue-500 underline-offset-8'>Sign Up</Link></h1>
+            <h1 className='font-extralight text-sm mt-1'>Not a member? <Link to='/register' className='underline decoration-blue-500 underline-offset-8'>Sign Up</Link></h1>
             
             {error && <Error error={error} />}
         </motion.form>
