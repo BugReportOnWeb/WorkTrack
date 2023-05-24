@@ -15,7 +15,7 @@ const Home = () => {
         const fetchWorkouts = async () => {
             setIsLoading(true);
 
-            const res = await fetch('http://worktrack-server.onrender.com/api/workouts', {
+            const res = await fetch('https://worktrack-server.onrender.com/api/workouts', {
                 headers: { 'Authorization': `Bearer ${authUser.token}` }
             })
 

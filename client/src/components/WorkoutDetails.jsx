@@ -11,7 +11,7 @@ const WorkoutDetails = ({ workout }) => {
     const deleteWorkout = async () => {
         if (!authUser) return;
 
-        const res = await fetch(`http://worktrack-server.onrender.com/workouts/${workout._id}`, {
+        const res = await fetch(`https://worktrack-server.onrender.com/workouts/${workout._id}`, {
             method: 'DELETE',
             headers: { 'Authorization': `Bearer ${authUser.token}` }
         });

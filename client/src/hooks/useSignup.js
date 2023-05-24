@@ -10,7 +10,7 @@ const useSignup = () => {
         setIsLoading(true);
         setError(null);
 
-        const res = await fetch('http://worktrack-server.onrender.com/api/user/register', {
+        const res = await fetch('https://worktrack-server.onrender.com/api/user/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })

@@ -25,7 +25,7 @@ const WorkoutForm = () => {
 
         const workout = {title, reps, load};
 
-        const res = await fetch('http://worktrack-server.onrender.com/api/workouts', {
+        const res = await fetch('https://worktrack-server.onrender.com/api/workouts', {
             method: 'POST',
             body: JSON.stringify(workout),
             headers: {
