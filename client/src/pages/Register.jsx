@@ -15,10 +15,11 @@ const Register = () => {
 
     const registerUser = async (e) => {
         e.preventDefault();
-        await signup(email, password)
+        await signup(email, password, confirmPassword)
 
         setEmail('');
         setPassword('');
+        setConfirmPassword('');
     }
 
     return (
