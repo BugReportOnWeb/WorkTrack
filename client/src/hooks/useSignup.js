@@ -6,14 +6,14 @@ const useSignup = () => {
     const [isLoading, setIsLoading] = useState(null);
     const { setAuthUser } = useAuthUserContext();
 
-    const signup = async (email, password) => {
+    const signup = async (email, password, confirmPassword) => {
         setIsLoading(true);
         setError(null);
 
         const res = await fetch('https://worktrack-server.onrender.com/api/user/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, password, confirmPassword })
         })
 
         const data = await res.json();
