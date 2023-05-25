@@ -6,9 +6,10 @@ const WorkoutContext = createContext();
 
 const WorkoutContextProvider = ({ children }) => {
     const [workouts, setWorkouts] = useState([]);
+    const [newWorkout, setNewWorkout] = useState({});
 
     return (
-        <WorkoutContext.Provider value={{ workouts, setWorkouts }}>
+        <WorkoutContext.Provider value={{ workouts, setWorkouts, newWorkout, setNewWorkout }}>
             {children}
         </WorkoutContext.Provider>
     )
