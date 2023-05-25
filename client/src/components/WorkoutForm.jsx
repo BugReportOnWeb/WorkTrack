@@ -5,7 +5,7 @@ import { useAuthUserContext } from '../hooks/useAuthUserContext.js';
 import Loading from '../components/Loading.jsx';
 
 const WorkoutForm = () => {
-    const { workouts, setWorkouts } = useContext(WorkoutContext);
+    const { workouts, setWorkouts, setNewWorkout } = useContext(WorkoutContext);
     const { authUser } = useAuthUserContext();
     const [title, setTitle] = useState('');
     const [reps, setReps] = useState('');
@@ -51,12 +51,11 @@ const WorkoutForm = () => {
             setError(null);
             setEmptyFields([]);
 
+            setNewWorkout(data);
             setWorkouts([data, ...workouts])
         }
 
     }
-
-    // 
 
     return (
         <form className={`relative flex flex-col align-items-center ${error ? 'mb-28' : 'mb-10'} p-4 border-2 border-gray-500 rounded-lg w-max mx-auto lg:absolute lg:top-[5.75rem] lg:right-0 lg:my-3`} onSubmit={handleSubmit}>
