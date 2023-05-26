@@ -39,7 +39,7 @@ const Register = () => {
                 placeholder='Email'
             />
 
-            <div className='relative'>
+            <div className='relative w-min'>
                 <input
                     className='p-2 bg-zinc-700 border border-zinc-600 rounded-md outline-none'
                     type='password'
@@ -47,20 +47,10 @@ const Register = () => {
                     value={password}
                     placeholder='Password'
                 />
-                <div className='group absolute top-1/2 right-0 -translate-y-1/2 mr-3 text-sm cursor-pointer'>
-                    <span>&#10068;</span> 
-                    <div className='absolute top-[200%] -right-[600%] bg-zinc-800 w-96 border border-zinc-600 p-5 text-sm hidden lg:top-1/2 lg:right-auto lg:-translate-y-1/2 lg:ml-20 group-hover:block'>
-                        <p>Please note that the password you choose must meet the following criteria:</p>
-
-                        <ul className='list-disc list-inside my-2'>
-                            <li>It should contain at least one uppercase letter (A-Z).</li>
-                            <li>It should contain at least one lowercase letter (a-z).</li>
-                            <li>It should include at least one numeric digit (0-9).</li>
-                            <li>It should contain at least one special symbol (e.g., !, @, #, $, %, etc.).</li>
-                            <li>The password must be at least 8 characters long.</li>
-                        </ul>
-
-                        <p>Please ensure that your password meets these requirements to ensure the security of your account.</p>
+                <div className='group text-sm md:absolute md:top-1/2 md:right-0 md:-translate-y-1/2 md:mr-3'>
+                    <span className='hidden cursor-pointer md:block'>&#10068;</span> 
+                    <div className='font-light bg-zinc-800 border border-zinc-600 p-3 rounded-sm text-xs mt-5 md:hidden md:absolute md:w-48 lg:w-80 md:top-1/2 md:right-auto md:-translate-y-1/2 md:ml-20 md:mt-0 group-hover:block'>
+                        <p>Password must contain: Uppercase letter, Lowercase letter, Numeric digit, Special symbol, Minimum 8 characters</p>
                     </div>
                 </div>
             </div>
