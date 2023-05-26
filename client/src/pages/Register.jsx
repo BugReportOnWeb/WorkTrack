@@ -68,7 +68,7 @@ const Register = () => {
                 Sign Up
             </button>
 
-            <h1 className='font-extralight text-sm mt-1'>Already a member? <Link to='/login' className='underline decoration-blue-500 underline-offset-8'>Login</Link></h1>
+            <h1 className='font-extralight text-sm mt-1'>Already a member? <Link to='/login' className='underline decoration-blue-500 underline-offset-8 hover:text-blue-500 hover:decoration-blue-900'>Login</Link></h1>
 
             {error && <Error error={error} />}
         </motion.form>
