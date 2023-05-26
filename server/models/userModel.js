@@ -32,12 +32,12 @@ userSchema.statics.login = async function(email, password) {
 
 userSchema.statics.register = async function(email, password, confirmPassword) {
     if (!email || !password) throw Error('All fields must be filled');
-    if (password !== confirmPassword) throw Error('Password doesn\'t match');
     if (!validator.isEmail(email)) throw Error('Email is not valid');
 
     const userExist = await this.findOne({ email });
     if (userExist) throw Error('Email already registered');
 
+    if (password !== confirmPassword) throw Error('Password doesn\'t match');
     if (!validator.isStrongPassword(password)) throw Error('Password is not strong enough');
 
     const salt = await bcrypt.genSalt(10);
