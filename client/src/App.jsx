@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-// Components
 import Nav from './components/Nav.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
