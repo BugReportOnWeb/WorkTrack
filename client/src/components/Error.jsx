@@ -1,6 +1,6 @@
-const Error = ({ error, width }) => {
+const Error = ({ error }) => {
     return (
-        <div className={`absolute -z-10 w-full left-0 p-3 border-2 border-red-500 rounded-md top-full mt-12 -translate-y-1/2 ${width}`}>
+        <div className='absolute -z-10 w-full left-0 p-3 border-2 border-red-500 rounded-md top-full mt-12 -translate-y-1/2'>
             <p className='text-red-500'>{error}</p>
         </div>
     )
