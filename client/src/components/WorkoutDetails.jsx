@@ -39,6 +39,7 @@ const WorkoutDetails = ({ workout }) => {
                 <FaTimes className='hover:text-red-500 cursor-pointer' onClick={deleteWorkout} />
             </div>
             <h2 className='font-light'>Reps: <span className='font-medium'>{workout.reps}</span></h2>
+            <h2 className='font-light'>Sets: <span className='font-medium'>{workout.sets}</span></h2>
             <h2 className='font-light'>Load (Kg): <span className='font-medium'>{workout.load}</span></h2>
             <h2 className='font-extralight mt-2'>{formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}</h2>
         </motion.div>
