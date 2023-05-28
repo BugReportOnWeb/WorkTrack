@@ -34,10 +34,11 @@ const getSingleWorkout = async (req, res) => {
 // POST a new workout
 const postWorkout = async (req, res) => {
     let emptyFields = [];
-    const {title, reps, load} = req.body;
+    const {title, reps, sets, load} = req.body;
 
     if (!title) emptyFields.push('title');
     if (!reps) emptyFields.push('reps');
+    if (!sets) emptyFields.push('sets');
     if (!load) emptyFields.push('load');
 
     if (emptyFields.length > 0) {
@@ -46,7 +47,7 @@ const postWorkout = async (req, res) => {
 
     try {
         const userId = req.user._id
-        const new_workout = await Workout.create({ title, reps, load, userId });
+        const new_workout = await Workout.create({ title, reps, sets, load, userId });
         res.status(200).json(new_workout);
     } catch (error) {
         const errorMessage = { error: error.message };
