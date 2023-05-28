@@ -9,6 +9,7 @@ const WorkoutForm = () => {
     const { authUser } = useAuthUserContext();
     const [title, setTitle] = useState('');
     const [reps, setReps] = useState('');
+    const [sets, setSets] = useState('');
     const [load, setLoad] = useState('');
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
@@ -23,7 +24,7 @@ const WorkoutForm = () => {
             return
         }
 
-        const workout = {title, reps, load};
+        const workout = {title, reps, sets, load};
 
         const res = await fetch('https://worktrack-server.onrender.com/api/workouts', {
             method: 'POST',
@@ -45,6 +46,7 @@ const WorkoutForm = () => {
         if (res.ok) {
             setTitle('');
             setReps('');
+            setSets('');
             setLoad('');
 
             setIsLoading(false);
@@ -76,6 +78,16 @@ const WorkoutForm = () => {
                 onChange={e => setReps(e.target.value)}
                 value={reps}
                 placeholder='Reps'
+            />
+            <br />
+
+            <input 
+                className={`p-2 my-3 bg-gray-800 border-2 rounded-md
+                    ${emptyFields.includes('sets') ? 'border-red-500' : 'border-gray-700'}`}
+                type='number'
+                onChange={e => setSets(e.target.value)}
+                value={sets}
+                placeholder='Sets'
             />
             <br />
 
