@@ -55,7 +55,7 @@ In order of their priority (most to least):
 - [X] Skeleton component when loading
 - [X] Indication for ongoing server request -> (Need one for deletion)
 - [X] Animation on component/page change -> (Need one for deletion)
-- [ ] Redoing About page
+- [ ] Redoing About page -> (Rather deleting it with change in Home page (un-auth))
 - [ ] Validator on client-side (Test)
 
 ## Contributing
