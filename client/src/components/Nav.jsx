@@ -28,7 +28,6 @@ const Nav = () => {
             <div className={`absolute bg-gray-800 top-[80%] right-1 flex flex-col p-5 gap-3 rounded-md border-2 border-gray-800 ${!showNavLinks ? 'hidden' : ''} sm:flex sm:flex-row sm:items-center sm:static sm:bg-transparent sm:gap-7 sm:border-none sm:p-0`}>
                 {!authUser && (
                     <>
-                        <Link className='underline-offset-8 decoration-2 decoration-[#007bff] hover:underline' to='/about' onClick={toggleNavLinks}>About</Link>
                         <Link className='underline-offset-8 decoration-2 decoration-[#007bff] hover:underline' to='/login' onClick={toggleNavLinks}>Login</Link>
                         <Link className='underline-offset-8 decoration-2 decoration-[#007bff] hover:underline' to='/register' onClick={toggleNavLinks}>SignUp</Link>
                     </>
