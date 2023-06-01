@@ -2,7 +2,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Nav from './components/Nav.jsx';
 import Home from './pages/Home.jsx';
-import About from './pages/About.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import WorkoutContextProvider from './context/WorkoutContext.jsx';
@@ -21,7 +20,6 @@ const App = () => {
                 <AnimatePresence initial={false}>
                     <Routes key={location.pathname}>
                         <Route path='/' element={authUser ? <Home /> : <Navigate to='/login' />} />
-                        <Route path='/about' element={<About />} />
                         <Route path='/login' element={!authUser ? <Login /> : <Navigate to='/' />} />
                         <Route path='/register' element={!authUser ? <Register /> : <Navigate to='/' />} />
                     </Routes>
